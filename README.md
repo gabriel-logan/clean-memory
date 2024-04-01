@@ -1,8 +1,15 @@
-# instalation
+# Clean Memory
+
+## instalation
 
 ## download the package
 
 [download](https://github.com/gabriel-logan/clean-memory/raw/main/package/clean-memory.deb)
+or download using wget
+
+```bash
+wget https://github.com/gabriel-logan/clean-memory/raw/main/package/clean-memory.deb
+```
 
 then:
 
@@ -15,6 +22,8 @@ now you can use the package in the terminal
 clean_memory.sh
 ```
 
+
+################################################################################
 
 if you receive the following message when trying to install the package
 
@@ -47,3 +56,5 @@ clean_memory.sh
 ## NOTE
 
 You need to run as a super user
+
+### By Gabriel Logan
