@@ -1,25 +1,20 @@
-# Clean-Memory-Limpa-Ram
-IMPORTANT!!!
-Você precisa ser root!
-You need run as root!
+# instalation
 
-OBS: Os dois arquivos são equivalentes, copie ou execute o que preferir!
-NOTE: The two files are equivalent, copy or run whichever you prefer!
+## Add repository
 
-Portugues:
-	Antes de tudo de permissão de execução ao arquivo
-	sudo chmod +x clean_memory.sh
+```bash
+echo "deb [trusted=yes] https://github.com/gabriel-logan/Clean-Memory-Limpa-Ram/ package/" | sudo tee /etc/apt/sources.list.d/clean-memory.list
+sudo apt update
+```
 
-	depois copie o arquivo para pasta /usr/sbin/
+## Install package
 
-	agora pode abrir o seu terminal e digitar o nome do arquivo e dar enter, tudo funcionando
+```bash
+sudo apt install clean-memory
+```
 
-English:
-	First of all, execute permission to the file
-	sudo chmod +x clean_memory.sh
+## Use
 
-	then copy the file to /usr/sbin/ folder
-
-	now you can open your terminal and type the name of the file and hit enter, everything working 
-
-By: Logan
+```bash
+clean_memory.sh
+```

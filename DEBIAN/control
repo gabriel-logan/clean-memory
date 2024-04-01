@@ -1,0 +1,5 @@
+Package: clean-memory
+Version: 1.0
+Architecture: all
+Maintainer: Gabriel Logan <gabriellogan1717@gmail.com>
+Description: Script to clear system RAM cache.
