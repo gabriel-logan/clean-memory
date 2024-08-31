@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   test-script:
@@ -43,8 +44,11 @@ jobs:
         else
           echo "Memory cleaning step missing."
           exit 1
+        fi
+
         if grep -q "by: Gabriel Logan" script_output.log; then
           echo "Author information present."
         else
           echo "Author information missing."
           exit 1
+        fi
