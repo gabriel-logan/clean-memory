@@ -1,5 +1,7 @@
 # Clean Memory
 
+Shell script command to clear unused temporary memory and system cache. Clean RAM memory.
+
 ## instalation
 
 ## download the package
