@@ -1,0 +1,46 @@
+name: Pr-Check Bash Script
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+
+    - name: Set execute permissions
+      run: chmod +x ./usr/bin/clean_memory.sh
+
+    - name: Run the Bash script
+      id: run_script
+      run: |
+        # Execute the script and capture output
+        sudo ./usr/bin/clean_memory.sh | tee script_output.log
+
+    - name: Verify script output
+      run: |
+        # Check if the script produced output indicating it ran
+        if grep -q "Values before" script_output.log && grep -q "Values now" script_output.log; then
+          echo "Script executed successfully."
+        else
+          echo "Script failed to execute properly."
+          exit 1
+        fi
+
+    - name: Verify script logs
+      run: |
+        # Ensure that certain expected outputs are present in the logs
+        if grep -q "Cleaning Memory..." script_output.log; then
+          echo "Memory cleaning step executed."
+        else
+          echo "Memory cleaning step missing."
+          exit 1
+        fi
