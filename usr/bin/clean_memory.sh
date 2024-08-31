@@ -1,18 +1,13 @@
 #!/bin/bash
 #autor: Gabriel Logan
-if [ $(id -u) -ne 0 ]; then
-    echo Error
-    echo "You need run as root"
-    echo Shuting down
+
+if [[ $(id -u) -ne 0 ]]; then
+    echo "Error: You need to run this script as root."
+    echo "Exiting..."
     exit 1
 fi
-main(){
-    echo
-    echo Values before
-    free --mega
-    echo
-    echo Cleaning Memory...
-    echo
+
+clean_memory() {
     sudo sync
     sudo echo 3 > /proc/sys/vm/drop_caches
     sudo sync
@@ -25,12 +20,24 @@ main(){
     sudo sync && sudo sysctl vm.drop_caches=3
     sudo sync && sudo sysctl vm.drop_caches=2
     sudo sync && sudo sysctl vm.drop_caches=1
+}
+
+main(){
     echo
-    echo Values now
+    echo "Values before"
+    free --mega
+    echo
+    echo "Cleaning memory..."
+    echo
+
+    clean_memory
+
+    echo
+    echo "Values now"
     echo
     echo "Clean - Values = MegaByte"
     free --mega
     echo
-    echo by: Gabriel Logan
+    echo "by: Gabriel Logan"
 }
 main
