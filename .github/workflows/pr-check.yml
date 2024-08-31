@@ -38,9 +38,13 @@ jobs:
     - name: Verify script logs
       run: |
         # Ensure that certain expected outputs are present in the logs
-        if grep -q "Cleaning Memory..." script_output.log; then
+        if grep -q "Cleaning memory..." script_output.log; then
           echo "Memory cleaning step executed."
         else
           echo "Memory cleaning step missing."
           exit 1
-        fi
+        if grep -q "by: Gabriel Logan" script_output.log; then
+          echo "Author information present."
+        else
+          echo "Author information missing."
+          exit 1
