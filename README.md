@@ -2,6 +2,8 @@
 
 Shell script command to clear unused temporary memory and system cache. Clean RAM memory.
 
+Boost your system's performance with a simple shell script command! Effortlessly clear unused temporary memory and system cache to refresh and optimize your RAM. Keep your system running at peak efficiency!
+
 ## instalation
 
 ## download the package
